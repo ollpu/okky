@@ -1,0 +1,59 @@
+
+@import 'shared/variables';
+
+body {
+  margin: 0;
+}
+
+header {
+  // Remove line-height to hide a white line between the image and the
+  // navigation bar
+  line-height: 0%;
+}
+
+img.front-banner {
+  width: 100%;
+}
+
+// Navigation
+nav {
+  background-color: $col_nav;
+  font-family: $nav_font;
+  
+  padding-right: $side_margin;
+  
+  box-shadow: 0 2px 4px rgba(black, 0.2),     // Bottom shadow
+              0 1px 0 rgba(white, 0.3) inset; // Slight embossment
+  z-index: 10;
+  
+  line-height: normal;
+  h1 {
+    font-family: $title_font;
+    
+    width: $side_margin;
+    color: rgba(black, 0.2);
+    font-size: 2.5rem;
+    
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .items {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+      
+    a {
+      padding: 1em 1.4em;
+      &:hover {
+        background-color: $nav_hover;
+      }
+      &:active {
+        background-color: $nav_active;
+        box-shadow: 0 2px 5px $nav_active inset;
+      }
+    }
+  }
+}
