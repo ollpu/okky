@@ -1,8 +1,14 @@
 
 @import 'shared/variables';
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
+  font-family: $content_font;
+  background-color: $col_bg;
 }
 
 header {
@@ -22,9 +28,11 @@ nav {
   
   padding-right: $side_margin;
   
-  box-shadow: 0 2px 4px rgba(black, 0.2),     // Bottom shadow
+  box-shadow: 0 1px 4px rgba(black, 0.2),     // Bottom shadow
               0 1px 0 rgba(white, 0.3) inset; // Slight embossment
   z-index: 10;
+  display: flex;
+  align-items: center;
   
   line-height: normal;
   h1 {
@@ -34,10 +42,8 @@ nav {
     color: rgba(black, 0.2);
     font-size: 2.5rem;
     
-    display: inline-block;
     margin: 0;
     text-align: center;
-    vertical-align: middle;
   }
   
   .items {
@@ -47,6 +53,7 @@ nav {
       
     a {
       padding: 1em 1.4em;
+      color: black;
       &:hover {
         background-color: $nav_hover;
       }
@@ -56,4 +63,68 @@ nav {
       }
     }
   }
+  span.divider { // An in-betweener between .items and the search form.
+                 // Has no content, only serves as a divider.
+    flex-grow: 1;
+  }
+  form.search {
+    input {
+      background-color: transparent;
+      border: 0;
+      &[type='submit'] {
+        vertical-align: middle;
+        padding: 0;
+        color: rgba(black, 0.5);
+        transition-duration: 200ms;
+        &:hover {
+          color: rgba(black, 0.8);
+        }
+      }
+      &[type='text'] {
+        font-family: inherit;
+        background-color: $col_bg;
+        padding: 0.2em;
+        width: $side_margin;
+        &:focus {
+          box-shadow: 1px 2px 4px rgba(black, 0.1);
+        }
+      }
+    }
+  }
+}
+
+div.container {
+  color: black;
+  
+  padding: 1em $side_margin;
+  
+  h2 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+  
+  &:nth-of-type(2n) {
+    background-color: $container_odd;
+    position: relative;
+    z-index: 9;
+  }
+}
+
+footer {
+  border-top: solid 2px $footer_border;
+  background-color: $container_odd;
+  
+  margin: 0 $side_margin;
+  padding: 1em 0;
+  text-align: center;
+  
+  margin-top: 6em;
+  span.text {
+    display: inline-block;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $col_link;
 }
