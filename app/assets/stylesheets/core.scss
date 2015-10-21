@@ -26,7 +26,7 @@ nav {
   background-color: $col_nav;
   font-family: $nav_font;
   
-  padding-right: $side_margin;
+  padding-right: $side_margin - 0.8rem;
   
   box-shadow: 0 1px 4px rgba(black, 0.2),     // Bottom shadow
               0 1px 0 rgba(white, 0.3) inset; // Slight embossment
@@ -38,7 +38,7 @@ nav {
   h1 {
     font-family: $title_font;
     
-    width: $side_margin;
+    width: $side_margin - 0.8rem;
     color: rgba(black, 0.2);
     font-size: 2.5rem;
     
@@ -50,9 +50,12 @@ nav {
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
-      
+    
+    // When out of space in the menu, allow scrolling (may look crude with non-mobile)
+    white-space: nowrap;
+    overflow-x: auto;
     a {
-      padding: 1em 1.4em;
+      padding: 1rem 1.4rem;
       color: black;
       &:hover {
         background-color: $nav_hover;
@@ -61,6 +64,10 @@ nav {
         background-color: $nav_active;
         box-shadow: 0 2px 5px $nav_active inset;
       }
+      &.material-icons {
+        padding: 0.84rem 1rem;
+        color: rgba(black, 0.6);
+      }
     }
   }
   span.divider { // An in-betweener between .items and the search form.
@@ -68,16 +75,17 @@ nav {
     flex-grow: 1;
   }
   form.search {
+    white-space: nowrap;
     input {
       background-color: transparent;
       border: 0;
       &[type='submit'] {
         vertical-align: middle;
         padding: 0;
-        color: rgba(black, 0.5);
+        color: $nav_icons_color;
         transition-duration: 200ms;
         &:hover {
-          color: rgba(black, 0.8);
+          color: $nav_icons_color_active;
         }
       }
       &[type='text'] {
@@ -85,6 +93,7 @@ nav {
         background-color: $col_bg;
         padding: 0.2em;
         width: $side_margin;
+        width: $sidebar_width;
         &:focus {
           box-shadow: 1px 2px 4px rgba(black, 0.1);
         }

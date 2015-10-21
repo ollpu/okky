@@ -1,0 +1,67 @@
+@import 'shared/variables';
+
+@media screen and (max-width: 1200px) {
+  div.container {
+    @include padding-horizontal($side-margin/2);
+  }
+  nav {
+    padding-right: $side_margin/2 - 1rem;
+  }
+  footer {
+    @include margin-horizontal($side-margin/2);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  div.container {
+    @include padding-horizontal($default_padding);
+  }
+  nav {
+    padding-right: $default_padding;
+    h1 {
+      width: initial;
+      @include margin-horizontal(1rem);
+    }
+    form.search input[type='text'] {
+      width: $sidebar_width_small;
+    }
+  }
+  footer {
+    @include margin-horizontal(0);
+  }
+}
+
+// Mobile mode
+@media screen and (max-width: 861px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .mobile-exclusive {
+    display: inherit;
+  }
+  nav {
+    padding-left: $default_padding;
+    &:not(.open) {
+      .items, form.search {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (min-width: 861px) {
+  .mobile-exclusive {
+    display: none !important;
+  }
+}
+
+a.mobile-menu {
+  color: $nav_icons_color;
+  width: 2em;
+  text-align: center;
+  align-self: stretch;
+  line-height: 200%;
+  user-select: none;
+  &:hover {
+    color: $nav_icons_color_active;
+  }
+}

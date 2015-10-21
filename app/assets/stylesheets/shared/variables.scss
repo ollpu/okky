@@ -1,2 +1,23 @@
 // Import theme
 @import 'theme';
+
+
+@mixin padding-horizontal($pad) {
+  padding-left: $pad;
+  padding-right: $pad;
+}
+
+@mixin padding-vertical($pad) {
+  padding-top: $pad;
+  padding-bottom: $pad;
+}
+
+@mixin margin-horizontal($pad) {
+  margin-left: $pad;
+  margin-right: $pad;
+}
+
+@mixin margin-vertical($pad) {
+  margin-top: $pad;
+  margin-bottom: $pad;
+}
