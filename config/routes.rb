@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   root to: 'index#index'
   
-  
-  resources :pages
+  resources :pages, path: '/hallinta/sivut'
+
   
   # Warning! This assigns a dynamic route to a controller on all paths.
   #          Keep this declaration as low as possible, to avoid blackouts of other static routes.
   get '*text_id' => 'pages#view', as: :navigate
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
