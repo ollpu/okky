@@ -1,0 +1,17 @@
+<% @title = "Hallitse sivuja" %>
+<% if @pages.length >= 1 %>
+  <% @pages.each do |page| %>
+    <%= link_to edit_page_path(page), class: 'page-preview' do %>
+      <span class="title"><%= page.title %></span>
+      <span class="path"><%= "/#{page.text_id}" %></span>
+      <span class="content"><%=
+        truncate sanitize(
+          page.content.gsub(/<br\s*\/?>/, ' '),
+          tags: [], attributes: []
+        ), length: 100, separator: ' '
+      %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  Yhtään sivua ei löydetty.
+<% end %>

@@ -1,0 +1,9 @@
+fi:
+  ckeditor:
+    page_title: "Tiedoston valinta"
+    confirm_delete: "Haluatko varmasti poistaa tämän tiedoston?"
+    buttons:
+      cancel: "Peruuta"
+      upload: "Lataa tiedosto palvelimelle"
+      delete: "Poista"
+      next: "Seuraava"

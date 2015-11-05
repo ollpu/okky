@@ -1,2 +1,2 @@
 <% @title = @page.title %>
-<%= @page.content %>
+<%= @page.content.html_safe %><%# Not sterilized! Unsafe! %>

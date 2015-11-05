@@ -26,14 +26,15 @@ class PagesController < ApplicationController
   end
   
   def edit
-    @page = Page.get(params[:id])
+    @page = Page.find(params[:id])
     # auth
   end
   
   def update
-    @page = page_params
+    @page = Page.find(params[:id])
     # auth
-    @page.save!
+    @page.update(page_params)
+    redirect_to page_path(@page)
   end
   
   def destroy

@@ -1,0 +1,6 @@
+<% @title = "Muokataan sivua #{@page.title}" %>
+
+<%= form_for @page do |form| %>
+  <%= form.cktext_area :content %>
+  <%= form.submit "Tallenna" %>
+<% end %>

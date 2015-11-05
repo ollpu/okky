@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root to: 'index#index'
   
   resources :pages, path: '/hallinta/sivut'
-
   
   # Warning! This assigns a dynamic route to a controller on all paths.
   #          Keep this declaration as low as possible, to avoid blackouts of other static routes.
