@@ -8,8 +8,9 @@
       <h1>OKKY</h1><!-- Prevent whitespace
    --><div class="items">
         <%= link_to 'home', root_path, class: 'material-icons hide-on-mobile' %>
-        <a>Toinen sivu</a>
-        <a>Kolmas sivu</a>
+        <% Page.all.each do |page| %>
+          <%= link_to page.title, navigate_path(text_id: page.text_id) %>
+        <% end %>
       </div>
       <span class="divider"></span>
       <%= form_tag '', class: 'search' do %>

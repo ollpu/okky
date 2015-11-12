@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= google_webfonts_init google: ['Signika Negative',
     'Montserrat', 'Lora', 'Material Icons'] %>
+  
 </head>
 <body>
 
@@ -21,6 +22,8 @@
 <% else %>
   <%= yield %>
 <% end %>
+
+<div class="footer-divider"></div>
 
 <footer>
   <span class="text">

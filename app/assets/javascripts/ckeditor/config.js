@@ -116,4 +116,6 @@ CKEDITOR.editorConfig = function( config )
   ];
   config.skin = 'bootstrapck';
   config.height = '400';
+  config.contentsCss = 'http://fonts.googleapis.com/css?family=Signika+Negative|Montserrat|Lora';
+  config.font_names = 'Teema: Sisältö/Lora;Teema: Otsikko/Montserrat;Teema: Otsake/Signika Negative;Arial/Arial;';
 };

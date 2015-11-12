@@ -3,7 +3,15 @@ class PagesController < ApplicationController
   # For end user (uses different parameter)
   def view
     @page = Page.find_by text_id: params[:text_id]
-    # auth
+    if @page.nil?
+      render :not_found, status: :not_found
+    end
+    authorize @page
+  end
+  
+  def show
+    @page = Page.find(params[:id])
+    authorize @page
     if @page.nil?
       render :not_found, status: :not_found
     end
@@ -11,35 +19,41 @@ class PagesController < ApplicationController
   
   def index
     @pages = Page.all
-    # auth (not with array?)
+    authorize :page
   end
   
   def new
     @page = Page.new
-    # auth
+    authorize @page
   end
   
   def create
     @page = page_params
-    # auth
+    authorize @page
     @page.save!
   end
   
   def edit
     @page = Page.find(params[:id])
-    # auth
+    authorize @page
   end
   
   def update
     @page = Page.find(params[:id])
-    # auth
-    @page.update(page_params)
-    redirect_to page_path(@page)
+    authorize @page
+    
+    if @page.update(page_params)
+      # Success
+      redirect_to page_path(@page)
+    else
+      # Failure
+      render 'edit'
+    end
   end
   
   def destroy
     @page = Page.get(params[:id])
-    # auth
+    authorize @page
     @page.destroy
   end
   

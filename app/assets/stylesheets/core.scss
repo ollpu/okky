@@ -3,12 +3,16 @@
 
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
   margin: 0;
   font-family: $content_font;
   background-color: $col_bg;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 header {
@@ -93,6 +97,7 @@ nav {
       }
       &[type='text'] {
         font-family: inherit;
+        font-size: inherit;
         background-color: $col_bg;
         padding: 0.2em;
         width: $side_margin;
@@ -120,6 +125,10 @@ div.container {
     position: relative;
     z-index: 9;
   }
+}
+
+.footer-divider {
+  flex-grow: 1;
 }
 
 footer {

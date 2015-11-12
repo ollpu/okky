@@ -1,6 +1,29 @@
 <% @title = "Muokataan sivua #{@page.title}" %>
 
+
+<%
+def errors_for model, field
+  messages = ""
+  model.errors.full_messages_for(field).each do |error|
+    messages << "#{error}. "
+  end
+  messages
+end
+%>
+
 <%= form_for @page do |form| %>
-  <%= form.cktext_area :content %>
+  <div class="section title">
+    <%= form.text_field :title %>
+    <span class="errors"><%= errors_for @page, :title %></span>
+  </div>
+  <div class="section location">
+    <%= form.label :text_id, 'Osoite:' %>
+    /<%= form.text_field :text_id %>
+    <span class="errors"><%= errors_for @page, :text_id %></span>
+  </div>
+  <%= form.cktext_area :content, class: 'ckeditor' %>
+  
   <%= form.submit "Tallenna" %>
 <% end %>
+
+<!-- <span class="require" data-require-unload-confirmation="Oletko varma että et halua tallentaa tätä sivua?"></span> -->

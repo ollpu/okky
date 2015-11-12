@@ -1,0 +1,10 @@
+
+fi:
+  activerecord:
+    models:
+      page: Sivu
+    attributes:
+      page:
+        text_id: Osoite
+        title: Otsikko
+        content: Sisältö
