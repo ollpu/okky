@@ -11,6 +11,8 @@ def errors_for model, field
 end
 %>
 
+<%= link_to 'Peruuta', request.referer || pages_path %>
+<hr>
 <%= form_for @page do |form| %>
   <div class="section title">
     <%= form.text_field :title, placeholder: 'Otsikko' %>

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   post '/hallinta/sivut/järjestys' => 'pages#save_order', as: 'admin_pages_save_order'
   resources :pages, path: '/hallinta/sivut'
   resources :posts, path: '/hallinta/päivitykset'
-  get '/hallinta' => 'admin#index'
-  get '/hallinta/login' => 'admin#login'
+  get '/hallinta' => 'admin#index', as: 'admin'
+  get '/hallinta/login' => 'admin#login', as: 'admin_login'
   
   get '/päivitykset/*date' => 'posts#show'
   

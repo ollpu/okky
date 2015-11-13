@@ -1,6 +1,8 @@
 <% @title = "Hallitse sivuja" %>
 
-<%= link_to 'Luo uusi sivu', new_page_path, data: { no_turbolink: true } %>
+<%= link_to 'Takaisin', request.referer || pages_path %>
+- <%= link_to 'Luo uusi sivu', new_page_path, data: { no_turbolink: true } %>
+- <%= link_to 'Vaihda sivujen järjestystä', admin_pages_order_path %>
 <hr>
 <% if @pages.length >= 1 %>
   <% @pages.each do |page| %>
