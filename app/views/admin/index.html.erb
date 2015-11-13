@@ -1,0 +1,18 @@
+<% @title = "Hallintapaneeli" %>
+<% @custom_layout = true %>
+
+<div class="container">
+  <h2>Sivut</h2>
+  <%= link_to 'Hallitse sivuja', pages_path %>
+  - <%= link_to 'Vaihda sivujen järjsestystä', admin_pages_order_path %>
+</div>
+
+<div class="container">
+  <h2>Päivitykset</h2>
+</div>
+
+<% if current_user and current_user.admin? %>
+  <div class="container">
+    <h2>Käyttäjät</h2>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 @import 'shared/variables';
 
 @media screen and (max-width: 1200px) {
+  $new-side-margin: $side-margin/2;
   div.container {
     @include padding-horizontal($side-margin/2);
   }
@@ -9,6 +10,9 @@
   }
   footer {
     @include margin-horizontal($side-margin/2);
+  }
+  .flash {
+    @include padding-horizontal($side-margin/2);
   }
 }
 

@@ -52,3 +52,5 @@ gem 'paperclip' # For file uploads
 
 # Pundit (privilige management, for admin console)
 gem 'pundit'
+
+gem 'jquery-ui-rails'

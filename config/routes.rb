@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root to: 'index#index'
   
+  get '/hallinta/sivut/järjestys' => 'pages#order', as: 'admin_pages_order'
+  post '/hallinta/sivut/järjestys' => 'pages#save_order', as: 'admin_pages_save_order'
   resources :pages, path: '/hallinta/sivut'
+  resources :posts, path: '/hallinta/päivitykset'
+  get '/hallinta' => 'admin#index'
+  get '/hallinta/login' => 'admin#login'
+  
+  get '/päivitykset/*date' => 'posts#show'
   
   # Warning! This assigns a dynamic route to a controller on all paths.
   #          Keep this declaration as low as possible, to avoid blackouts of other static routes.

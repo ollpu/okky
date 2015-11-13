@@ -9,11 +9,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= google_webfonts_init google: ['Signika Negative',
     'Montserrat', 'Lora', 'Material Icons'] %>
-  
 </head>
 <body>
 
 <%= render 'layouts/header', cache: true %>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :span, msg, class: "flash #{name}" %>
+<% end %>
 
 <% unless @custom_layout %>
   <div class="container">

@@ -6,6 +6,7 @@ class PagePolicy < ApplicationPolicy
   
   def show?
     user and user.editor?
+    true # TEMPORARY
   end
   
   def index?
@@ -22,5 +23,13 @@ class PagePolicy < ApplicationPolicy
   
   def destroy?
     show?
+  end
+  
+  def save_order?
+    show?
+  end
+  
+  def order?
+    save_order?
   end
 end

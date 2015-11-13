@@ -1,16 +1,27 @@
 <% @title = "Hallitse sivuja" %>
+
+<%= link_to 'Luo uusi sivu', new_page_path, data: { no_turbolink: true } %>
+<hr>
 <% if @pages.length >= 1 %>
   <% @pages.each do |page| %>
-    <%= link_to edit_page_path(page), class: 'page-preview' do %>
-      <span class="title"><%= page.title %></span>
+    <div class="page-preview">
+      <%= link_to edit_page_path(page), class: 'edit', data: { no_turbolink: true } do %>
+        <span class="title"><%= page.title %></span>
+      <% end %>
       <span class="path"><%= "/#{page.text_id}" %></span>
+      <%= link_to 'delete',
+        page,
+        method: :delete,
+        data: { confirm: 'Haluatko varmasti poistaa tämän sivun lopullisesti?' },
+        class: 'remove material-icons'
+      %>
       <span class="content"><%=
         truncate sanitize(
           page.content.gsub(/<br\s*\/?>/, ' '),
           tags: [], attributes: []
         ), length: 100, separator: ' '
       %></span>
-    <% end %>
+    </div>
   <% end %>
 <% else %>
   Yhtään sivua ei löydetty.

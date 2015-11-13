@@ -1,0 +1,12 @@
+<% @title = "Järjestä sivut" %>
+
+Vedä ja järjestä sivut haluamaasi järjestykseen.
+<%= form_tag admin_pages_save_order_path, class: 'page-order-form' do %>
+  <ul class="page-order-container">
+    <% @pages_ordered.each do |page| %>
+      <li id="page_<%= page.id %>" class="page-order-dragdrop"><%= page.title %></li>
+    <% end %>
+  </ul>
+  <%= hidden_field_tag :order, nil, class: "page-order-input" %>
+  <%= submit_tag 'Tallenna' %>
+<% end %>

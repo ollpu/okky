@@ -25,12 +25,14 @@ class PagesController < ApplicationController
   def new
     @page = Page.new
     authorize @page
+    render :edit
   end
   
   def create
-    @page = page_params
+    @page = Page.new(page_params)
     authorize @page
     @page.save!
+    redirect_to pages_path
   end
   
   def edit
@@ -52,9 +54,28 @@ class PagesController < ApplicationController
   end
   
   def destroy
-    @page = Page.get(params[:id])
+    @page = Page.find(params[:id])
     authorize @page
     @page.destroy
+    redirect_to pages_path
+  end
+  
+  def order
+    @pages_ordered = Page.sorted
+    authorize :page
+  end
+  
+  def save_order
+    authorize :page
+    success = true
+    params[:page].each_with_index do |id, i|
+      page = Page.find(id)
+      page.order = i
+      unless page.save
+        success = false
+      end
+    end
+    render json: { :ok => success }
   end
   
   private

@@ -65,13 +65,17 @@ blockquote {
 
 // Meta & forms
 
-a.page-preview {
+div.page-preview {
   display: block;
   .title {
     font-size: 22px;
     border-bottom: 2px dotted black;
   }
   .path {
+    color: gray;
+  }
+  .remove {
+    vertical-align: middle;
     color: gray;
   }
   .content {
@@ -81,7 +85,7 @@ a.page-preview {
   }
 }
 
-form.edit_page {
+form.edit_page, form.new_page {
   .section {
     margin-bottom: 1em;
     .errors {
@@ -119,5 +123,21 @@ form.edit_page {
   .field_with_errors {
     display: inline-block;
     color: red;
+  }
+}
+
+.page-order-container {
+  border: 1px solid gray;
+  padding: 0.4em;
+  margin: 1em;
+  width: 20em;
+  max-width: 100%;
+  .page-order-dragdrop {
+    display: block;
+    background-color: $col_nav;
+    margin: 0.4em;
+    padding: 0.2em;
+    font-family: $nav_font;
+    box-shadow: 1px 0 2px rgba(black, 0.2);
   }
 }
