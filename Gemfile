@@ -46,6 +46,10 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  gem 'puma' # Recommended by Heroku
+end
+
 # CKEditor (web-based text editor that generates HTML)
 gem 'ckeditor'
 gem 'paperclip' # For file uploads
