@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     if: "password.present?"
   validates :password,
     confirmation: true,
-    length: { minimum: 5, maximum: 72 }
+    length: { minimum: 5, maximum: 72 },
     if: "password.present?"
   validates :password_hash, presence: true
   validates :password_salt, presence: true
