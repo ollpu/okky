@@ -1,6 +1,6 @@
 <header>
   <%= image_tag('front_banner.jpg', class: 'front-banner') %>
-  <% cache('nav') do %>
+  <%# cache('nav') do %>
     <nav>
       <%= link_to 'home', root_path, class: "material-icons mobile-exclusive mobile-menu" %>
       <!-- <a class="material-icons mobile-exclusive mobile-menu">home</a> -->
@@ -21,5 +21,5 @@
          class="material-icons mobile-exclusive mobile-menu"
          >menu</a>
     </nav>
-  <% end %>
+  <%# end %>
 </header>
