@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
   validates :text_id,
     presence: true
   validates :order,
-    presence: true
+    numericality: { greater_than: 0 }
   before_validation :define_order
   # TODO: Sanitize content
   
@@ -14,6 +14,8 @@ class Page < ActiveRecord::Base
   
   private
   def define_order
-    self.order = id
+    if not order or order == 0
+      self.order = Page.count
+    end
   end
 end

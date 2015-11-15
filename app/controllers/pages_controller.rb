@@ -70,7 +70,7 @@ class PagesController < ApplicationController
     success = true
     params[:page].each_with_index do |id, i|
       page = Page.find(id)
-      page.order = i
+      page.order = i+1
       unless page.save
         success = false
       end
