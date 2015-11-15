@@ -5,8 +5,10 @@ class PagesController < ApplicationController
     @page = Page.find_by text_id: params[:text_id]
     if @page.nil?
       render :not_found, status: :not_found
+      authorize :page
+    else
+      authorize @page
     end
-    authorize @page
   end
   
   def show
