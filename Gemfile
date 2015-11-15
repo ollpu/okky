@@ -50,7 +50,7 @@ end
 group :production do
   gem 'puma' # Recommended by Heroku
   gem 'pg'
-  gem 'rails_12factor'
+  # gem 'rails_12factor' Temporarily disabled
 end
 
 # CKEditor (web-based text editor that generates HTML)

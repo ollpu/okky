@@ -24,10 +24,8 @@ module Okky
     config.active_record.raise_in_transactional_callbacks = true
     config.i18n.default_locale = :fi
     
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-    config.assets.precompile += Ckeditor.assets
-    config.assets.precompile += %w(ckeditor/*)
-    
-    config.serve_static_assets = true
+    # config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    # config.assets.precompile += Ckeditor.assets
+    # config.assets.precompile += %w(ckeditor/*)
   end
 end
