@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+  # mount Ckeditor::Engine => '/ckeditor'
   root to: 'index#index'
   
   get '/hallinta/sivut/järjestys' => 'pages#order', as: 'admin_pages_order'
