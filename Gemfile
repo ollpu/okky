@@ -54,8 +54,8 @@ group :production do
 end
 
 # CKEditor (web-based text editor that generates HTML)
-gem 'ckeditor'
-gem 'paperclip' # For file uploads
+# gem 'ckeditor'
+# gem 'paperclip' # For file uploads
 
 # Pundit (privilige management, for admin console)
 gem 'pundit'
