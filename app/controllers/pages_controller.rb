@@ -77,6 +77,7 @@ class PagesController < ApplicationController
         success = false
       end
     end
+    expire_fragment 'nav'
     render json: { :ok => success }
   end
   
@@ -85,6 +86,4 @@ class PagesController < ApplicationController
     def page_params
       params.require(:page).permit(:text_id, :title, :content)
     end
-    # TODO: Move this comment to the model definition
-    # TODO: Invalidate header cache when modifying the set of pages
 end

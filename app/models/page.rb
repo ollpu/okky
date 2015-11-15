@@ -12,10 +12,17 @@ class Page < ActiveRecord::Base
     end
   end
   
+  # TODO: Invalidate header cache when modifying the set of pages
+  
   private
-  def define_order
-    if not order or order == 0
-      self.order = Page.count
+    def define_order
+      if not order or order == 0
+        self.order = Page.count
+      end
     end
-  end
+    
+    def after_save
+      expire_fragment 'nav'
+    end
+    def after_destroy; after_save; end
 end
