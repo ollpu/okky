@@ -23,7 +23,7 @@ end
     /<%= form.text_field :text_id %>
     <span class="errors"><%= errors_for @page, :text_id %></span>
   </div>
-  <%= form.cktext_area :content, class: 'ckeditor' %>
+  <%= form.text_area :content, style: "width: 100%; height: 16em;" %>
   
   <%= form.submit "Tallenna" %>
 <% end %>
