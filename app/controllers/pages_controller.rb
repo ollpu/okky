@@ -5,8 +5,10 @@ class PagesController < ApplicationController
     @page = Page.find_by text_id: params[:text_id]
     if @page.nil?
       render :not_found, status: :not_found
+      authorize :page
+    else
+      authorize @page
     end
-    authorize @page
   end
   
   def show
@@ -70,11 +72,12 @@ class PagesController < ApplicationController
     success = true
     params[:page].each_with_index do |id, i|
       page = Page.find(id)
-      page.order = i
+      page.order = i+1
       unless page.save
         success = false
       end
     end
+    expire_fragment 'nav'
     render json: { :ok => success }
   end
   
@@ -83,6 +86,4 @@ class PagesController < ApplicationController
     def page_params
       params.require(:page).permit(:text_id, :title, :content)
     end
-    # TODO: Move this comment to the model definition
-    # TODO: Invalidate header cache when modifying the set of pages
 end
